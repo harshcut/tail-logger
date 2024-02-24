@@ -1,0 +1,17 @@
+{
+  "name": "tail-logger",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "turbo dev --no-daemon",
+    "lint": "turbo lint --no-daemon",
+    "build": "turbo build --no-daemon"
+  },
+  "devDependencies": {
+    "turbo": "^1.12.4"
+  },
+  "packageManager": "yarn@1.22.21"
+}
