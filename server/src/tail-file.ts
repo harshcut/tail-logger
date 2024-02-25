@@ -17,6 +17,10 @@ export default class TailFile extends events.EventEmitter {
     this.eof = -1
   }
 
+  get() {
+    return this.queue
+  }
+
   init() {
     const file = fs.openSync(this.filename, 'r')
     this.eof = fs.fstatSync(file).size
@@ -45,7 +49,6 @@ export default class TailFile extends events.EventEmitter {
     }
 
     fs.closeSync(file)
-    this.emit('init', this.queue)
 
     fs.watchFile(this.filename, { interval: POLLING_INTERVAL }, (curr, prev) => {
       this.update(curr, prev)
