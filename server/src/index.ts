@@ -4,7 +4,7 @@ import TailFile from './tail-file'
 const tailFile = new TailFile('server.log')
 tailFile.init()
 
-const io = new Server(8000, { cors: { origin: '*' } })
+const io = new Server(8000, { cors: { origin: 'http://localhost:3000' } })
 
 io.on('connection', (socket) => {
   const queue = tailFile.get()
